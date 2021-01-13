@@ -1,0 +1,13 @@
+$primary-color:rgba(#0075ff, 0.6);
+
+.page{
+  height: 100vh;
+}
+
+.sidebar{
+  background-color: $primary-color;
+  height: 100vh;
+  color:black;
+  padding: 0;
+
+}

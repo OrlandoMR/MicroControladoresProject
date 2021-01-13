@@ -123,6 +123,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "MicroControladoresProject"
+    }
+  },
+  "defaultProject": "MicroControladoresProject",
+  "cli": {
+    "analytics": false
+  }
 }
