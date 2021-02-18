@@ -1,6 +1,11 @@
 
-<div class="row">
-  <nav id="sidebarMenu" class="col-md-3 col-lg-2 d-md-block sidebar collapse">
-    <app-navbar></app-navbar>
-  </nav>
+
+
+<app-navbar></app-navbar>
+<div class="viewer">
+  <app-sidebar></app-sidebar>
+  <div class="scrolleable">
+    <router-outlet></router-outlet>
+  </div>
+  
 </div>

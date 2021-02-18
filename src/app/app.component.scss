@@ -1,13 +1,8 @@
-$primary-color:rgba(#0075ff, 0.6);
-
-.page{
-  height: 100vh;
+.viewer{
+  display: flex;
 }
-
-.sidebar{
-  background-color: $primary-color;
-  height: 100vh;
-  color:black;
-  padding: 0;
-
+.scrolleable{
+  overflow: auto;
+  width: 84vw;
+  padding: 2rem;
 }
