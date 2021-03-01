@@ -10,7 +10,7 @@ import { GalleryComponent } from './views/gallery/gallery.component';
 import { LightComponent } from './views/light/light.component';
 import { AmbientComponent } from './views/ambient/ambient.component';
 import { NgApexchartsModule } from 'ng-apexcharts';
-import { firebaseConfig } from "../environments/environment"
+import { environment } from "../environments/environment"
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireStorageModule } from '@angular/fire/storage';
 import { AngularFireDatabaseModule } from '@angular/fire/database';
@@ -32,7 +32,7 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
     BrowserModule,
     NgApexchartsModule,
     HttpClientModule,
-    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFireStorageModule,
     AngularFireDatabaseModule,
     AngularFirestoreModule,
