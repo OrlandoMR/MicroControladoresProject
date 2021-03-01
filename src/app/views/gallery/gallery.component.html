@@ -1,1 +1,13 @@
-<p>gallery works!</p>
+
+  <div class="row">
+    <div class="col-sm-4" *ngFor="let foto of itemsPrueba ">
+      <div class="card"  >
+        <img [src]="foto.url" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{foto.name}}</h5>
+
+        </div>
+      </div>
+    </div>
+
+  </div>

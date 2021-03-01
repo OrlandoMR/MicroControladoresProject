@@ -1,1 +1,36 @@
-<p>light works!</p>
+<div class="card">
+  <div class="card-body">
+    <h2>Pasillo lateral derecho</h2>
+    <label class="switch">
+      <input type="checkbox" (change)="turn(1,$event)">
+      <span class="slider round"></span>
+    </label>
+  </div>
+</div>
+<div class="card">
+  <div class="card-body">
+    <h2>Pasillo lateral izquierdo</h2>
+    <label class="switch">
+      <input type="checkbox" (change)="turn(2,$event)">
+      <span class="slider round"></span>
+    </label>
+  </div>
+</div>
+<div class="card">
+  <div class="card-body">
+    <h2>Almacen</h2>
+    <label class="switch">
+      <input type="checkbox" (change)="turn(3,$event)">
+      <span class="slider round" ></span>
+    </label>
+  </div>
+</div>
+<div class="card">
+  <div class="card-body">
+    <h2>Entrada</h2>
+    <label class="switch">
+      <input type="checkbox">
+      <span class="slider round"></span>
+    </label>
+  </div>
+</div>

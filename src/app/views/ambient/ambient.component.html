@@ -1,14 +1,14 @@
-<button class="btn btn-primary border" (click)="dataChart()">
-  Actualizar
-</button>
+<!-- <button class="btn btn-primary border" (click)="resetChart()">
+  Reset
+</button> -->
 <div class="card">
   <div class="card-body">
-<apx-chart [series]="chartOptions.series"
-    [chart]="chartOptions.chart"
-    [xaxis]="chartOptions.xaxis"
-    [dataLabels]="chartOptions.dataLabels"
-    [grid]="chartOptions.grid"
-    [stroke]="chartOptions.stroke"
-    ></apx-chart>
+    <apx-chart [series]="chartOptions.series"
+      [chart]="chartOptions.chart" 
+      [xaxis]="chartOptions.xaxis"
+      [dataLabels]="chartOptions.dataLabels"
+      [grid]="chartOptions.grid"
+      [stroke]="chartOptions.stroke">
+    </apx-chart>
   </div>
-    </div>
+</div>

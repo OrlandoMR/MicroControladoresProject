@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LightService } from 'src/app/services/light.service';
 
 @Component({
   selector: 'app-light',
@@ -7,9 +8,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LightComponent implements OnInit {
 
-  constructor() { }
+  constructor(private lightService:LightService) { }
 
   ngOnInit(): void {
+  }
+
+  public turn(id:number,e:any){
+
+    if(e.target.checked){
+      this.lightService.changeStateLed(id,1).subscribe(resp=>{
+        console.log(resp);
+      });
+    }
+    if(!e.target.checked){
+      this.lightService.changeStateLed(id,0).subscribe(resp=>{
+        console.log(resp);
+      });
+    }
+
+
+
   }
 
 }

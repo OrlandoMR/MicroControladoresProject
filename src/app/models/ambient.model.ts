@@ -1,6 +1,6 @@
 export class AmbientModel {
-  id: string;
-  temperatura: number;
-  humedad: number;
+  Temperatura: number;
+  Humedad: number;
+  Presion:number;
   tiempo: string;
 }

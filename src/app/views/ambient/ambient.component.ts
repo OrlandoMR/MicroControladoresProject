@@ -8,18 +8,26 @@ import {
   ApexDataLabels,
   ApexTitleSubtitle,
   ApexStroke,
-  ApexGrid
+  ApexGrid,
+  ApexMarkers,
+  ApexYAxis,
+  ApexLegend
 } from "ng-apexcharts";
 import { AmbientService } from 'src/app/services/ambient.service';
+
 
 
 export type ChartOptions = {
   series: ApexAxisChartSeries;
   chart: ApexChart;
   xaxis: ApexXAxis;
-  dataLabels: ApexDataLabels;
-  grid: ApexGrid;
   stroke: ApexStroke;
+  dataLabels: ApexDataLabels;
+  markers: ApexMarkers;
+  colors: string[];
+  yaxis: ApexYAxis;
+  grid: ApexGrid;
+  legend: ApexLegend;
   title: ApexTitleSubtitle;
 };
 
@@ -33,16 +41,18 @@ export class AmbientComponent implements OnInit {
   @ViewChild("chart") chart: ChartComponent;
   public chartOptions: Partial<ChartOptions>;
 
+
   // dataTemp: number[] = [20, 21, 21, 22, 34, 23, 42, 23, 26, 23, 37, 23, 26];
-  // dataTime= ["6:00","7:00","8:00","9:00","10:00","11:00","12:00","13:00","14:00","15:00","16:00","17:00"];
+  dataTime: string[] = ["A", "B", "B", "D", "F", "G", "H", "I", "J", "K", "L", "M"];
   dataTemp: number[] = [];
   dataHum: number[] = [];
-  dataTime: string[] = [];
+  // dataTime: string[] = [];
+  dataPres: number[] = [];
 
   constructor(private ambientService: AmbientService) {
-    this.dataChart();
-    console.log(this.dataTime)
+    // this.dataChart();
 
+    setInterval(() => { this.dataChart() }, 5000);
   }
 
   ngOnInit(): void {
@@ -53,9 +63,18 @@ export class AmbientComponent implements OnInit {
     this.chartOptions = {
       series: [
         {
-          name: "Desktops",
+          name: "Temperatura",
           data: this.dataTemp
+        },
+        {
+          name: "Presion",
+          data: this.dataPres
+        },
+        {
+          name: "Humedad",
+          data: this.dataHum
         }
+
       ],
       chart: {
         height: 350,
@@ -77,17 +96,63 @@ export class AmbientComponent implements OnInit {
         }
       },
       xaxis: {
-        type: "datetime",
+        // type: "datetime",
         categories: this.dataTime
       }
     };
   }
 
+
+
   public dataChart() {
-    this.dataTemp = this.ambientService.getTemperatura();
-    this.dataHum = this.ambientService.getHumedad();
-    this.dataTime = this.ambientService.getTiempo();
+
+    this.ambientService.getAmbientes().subscribe((resp) => {
+
+      if (resp.length > 100) {
+
+
+      }
+      this.dataTemp = [];
+      this.dataHum = [];
+      this.dataPres = [];
+      const data=resp.slice(-15);
+
+      for (let i of data) {
+        if (i != null) {
+
+          this.dataTemp.push(i.Temperatura);
+          this.dataHum.push(i.Humedad);
+          this.dataPres.push(i.Presion/100);
+
+        }
+      }
+    })
+    // this.getTemperatura();
+    // this.getHumedad();
+    // this.getPresion();
     this.chartLine();
+
   }
+
+  // private getTemperatura() {
+  //
+  //   this.ambientService.getAmbientes().subscribe(resp => {
+  //       this.dataTemp.push(resp.Temperatura);
+  //   });
+  //
+  // }
+  //
+  // private getHumedad() {
+  //   this.ambientService.getAmbientes().subscribe(resp => {
+  //     this.dataHum.push(resp.Humedad);
+  //   });
+  //
+  // }
+  //
+  // private getPresion() {
+  //   this.ambientService.getAmbientes().subscribe(resp => {
+  //     this.dataPres.push(resp.Presion);
+  //   });
+  // }
 
 }

@@ -2,7 +2,13 @@
   display: flex;
 }
 .scrolleable{
-  overflow: auto;
   width: 84vw;
-  padding: 2rem;
+  padding-left: 4vw;
+  padding-right: 4vw;
+  padding-top: 4vh;
+  
+  height: 94vh;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  background-color: rgba(#f1f1f1, 0.42);
 }
