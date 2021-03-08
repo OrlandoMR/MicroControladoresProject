@@ -46,6 +46,7 @@ export class AmbientComponent implements OnInit {
   dataTime: string[] = ["A", "B", "B", "D", "F", "G", "H", "I", "J", "K", "L", "M"];
   dataTemp: number[] = [];
   dataHum: number[] = [];
+  TempAlt: boolean=false;
   // dataTime: string[] = [];
   dataPres: number[] = [];
 
@@ -126,6 +127,12 @@ export class AmbientComponent implements OnInit {
       }
       for(let i in this.dataTemp){
           this.dataTemp[i]=Math.round(this.dataTemp[i])
+
+      }
+      if(this.dataTemp[14]>50){
+        this.TempAlt=true;
+      }else{
+        this.TempAlt=false;
       }
 
       this.chartLine();

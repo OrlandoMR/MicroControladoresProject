@@ -1,10 +1,13 @@
 <!-- <button class="btn btn-primary border" (click)="resetChart()">
   Reset
 </button> -->
+<div *ngIf="TempAlt" class="alert alert-danger" role="alert">
+  La temperatura ha subido tenga cuidado
+</div>
 <div class="card">
   <div class="card-body">
     <apx-chart [series]="chartOptions.series"
-      [chart]="chartOptions.chart" 
+      [chart]="chartOptions.chart"
       [xaxis]="chartOptions.xaxis"
       [dataLabels]="chartOptions.dataLabels"
       [grid]="chartOptions.grid"
