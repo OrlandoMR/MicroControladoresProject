@@ -1,36 +1,20 @@
-<div class="card">
-  <div class="card-body">
-    <h2>Pasillo lateral derecho</h2>
-    <label class="switch">
-      <input type="checkbox" (change)="turn(1,$event)">
-      <span class="slider round"></span>
-    </label>
+<form class="" [formGroup]="form">
+  <div class="card">
+    <div class="card-body">
+      <h2>Sector 1</h2>
+      <label class="switch">
+        <input type="checkbox" formControlName="Sector1" #Sector1 (change)="turn(1,$event)">
+        <span class="slider round"></span>
+      </label>
+    </div>
   </div>
-</div>
-<div class="card">
-  <div class="card-body">
-    <h2>Pasillo lateral izquierdo</h2>
-    <label class="switch">
-      <input type="checkbox" (change)="turn(2,$event)">
-      <span class="slider round"></span>
-    </label>
+  <div class="card">
+    <div class="card-body">
+      <h2>Sector 2</h2>
+      <label class="switch">
+        <input type="checkbox" formControlName="Sector2" #Sector2 (change)="turn(2,$event)">
+        <span class="slider round"></span>
+      </label>
+    </div>
   </div>
-</div>
-<div class="card">
-  <div class="card-body">
-    <h2>Almacen</h2>
-    <label class="switch">
-      <input type="checkbox" (change)="turn(3,$event)">
-      <span class="slider round" ></span>
-    </label>
-  </div>
-</div>
-<div class="card">
-  <div class="card-body">
-    <h2>Entrada</h2>
-    <label class="switch">
-      <input type="checkbox">
-      <span class="slider round"></span>
-    </label>
-  </div>
-</div>
+</form>

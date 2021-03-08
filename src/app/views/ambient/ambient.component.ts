@@ -106,53 +106,35 @@ export class AmbientComponent implements OnInit {
 
   public dataChart() {
 
+
     this.ambientService.getAmbientes().subscribe((resp) => {
-
-      if (resp.length > 100) {
+      console.log(resp)
+      if (resp.Hora.length > 100) {
 
 
       }
-      this.dataTemp = [];
-      this.dataHum = [];
-      this.dataPres = [];
-      const data=resp.slice(-15);
+      this.dataTemp = resp.Temperatura.slice(-15)
+      this.dataHum = resp.Humedad.slice(-15)
+      this.dataPres = resp.Presion.slice(-15)
+      this.dataTime = resp.Hora.slice(-15)
 
-      for (let i of data) {
-        if (i != null) {
-
-          this.dataTemp.push(i.Temperatura);
-          this.dataHum.push(i.Humedad);
-          this.dataPres.push(i.Presion/100);
-
-        }
+      for(let i in this.dataPres){
+          this.dataPres[i]=Math.round(this.dataPres[i]/10)
       }
-    })
-    // this.getTemperatura();
-    // this.getHumedad();
-    // this.getPresion();
-    this.chartLine();
+      for(let i in this.dataHum){
+          this.dataHum[i]=Math.round(this.dataHum[i])
+      }
+      for(let i in this.dataTemp){
+          this.dataTemp[i]=Math.round(this.dataTemp[i])
+      }
+
+      this.chartLine();
+
+
+
+    });
+
+
 
   }
-
-  // private getTemperatura() {
-  //
-  //   this.ambientService.getAmbientes().subscribe(resp => {
-  //       this.dataTemp.push(resp.Temperatura);
-  //   });
-  //
-  // }
-  //
-  // private getHumedad() {
-  //   this.ambientService.getAmbientes().subscribe(resp => {
-  //     this.dataHum.push(resp.Humedad);
-  //   });
-  //
-  // }
-  //
-  // private getPresion() {
-  //   this.ambientService.getAmbientes().subscribe(resp => {
-  //     this.dataPres.push(resp.Presion);
-  //   });
-  // }
-
 }
